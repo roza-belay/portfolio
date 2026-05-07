@@ -90,12 +90,6 @@ const education: TimelineItem[] = [
     detail: 'Examen 5 juni 2026. Fokus på React, modern frontend, backendgrunder och webbsäkerhet.',
   },
   {
-    title: 'Svenska som andraspråk',
-    place: 'Jensen Komvux',
-    period: 'Mars 2023 - Aug 2023',
-    detail: 'Språkstudier som stärker kommunikation i svenska team och arbetsmiljöer.',
-  },
-  {
     title: 'Civilingenjör - Geoteknisk ingenjör',
     place: 'Adama Science and Technology University, Etiopien',
     period: '2009 - 2014',
@@ -104,8 +98,6 @@ const education: TimelineItem[] = [
 ];
 
 const strengths = ['Analytisk och problemlösande', 'Strukturerad och noggrann', 'Samarbetsvillig', 'Snabb inlärning', 'Teknisk anpassningsförmåga'];
-const languages = ['Svenska', 'Engelska', 'Tigrinska', 'Amhariska'];
-
 function App() {
   return (
     <div className="site-shell">
@@ -123,43 +115,32 @@ function App() {
       </header>
 
       <main>
-        <section id="home" className="hero-section">
+        <section id="home" className="hero-section hero-section-clean">
           <div className="hero-copy">
             <p className="eyebrow">Fullstack Utvecklare - frontend-fokus</p>
-            <h1>Jag bygger säkra, moderna webbupplevelser med React och Node.js.</h1>
+            <h1>Roza Belay</h1>
+            <p className="hero-statement">Fullstack Developer crafting secure, scalable and modern web experiences</p>
             <p className="hero-lead">
-              Frontend- och fullstackutvecklare med fokus på React, Node.js och webbsäkerhet.
-              Praktisk erfarenhet från LiA där jag utvecklar POS-lösningar med betalterminalintegration,
-              komplexa betalflöden och Android/Kotlin i verklig betalmiljö.
+              Frontend-fokuserad fullstackutvecklare med fokus på React, Node.js och säker webbutveckling.
+              Bygger moderna och skalbara webbapplikationer samt POS-lösningar med betalterminalintegration
+              och komplexa betalflöden. Praktisk erfarenhet av Android/Kotlin, API-integrationer och utveckling
+              i verkliga produktionsnära miljöer.
             </p>
+            <div className="hero-focus-grid" aria-label="Tekniska fokusområden">
+              <span><FaReact /> React Frontend</span>
+              <span><FaNodeJs /> Node.js Backend</span>
+              <span><FaShieldHalved /> Secure Web</span>
+              <span><FaMobileScreen /> POS Integration</span>
+            </div>
             <div className="hero-actions">
-              <a className="primary-button" href="mailto:rozaybeyn.belay@gmail.com">
-                <FaEnvelope /> Kontakta Roza
+              <a className="primary-button" href="#contact">
+                <FaEnvelope /> Kontakt
               </a>
-              <a className="ghost-button" href="https://github.com/Rozabelay339" target="_blank" rel="noreferrer">
-                <FaGithub /> GitHub profil
+              <a className="ghost-button" href="#projects">
+                <FaArrowUpRightFromSquare /> Se projekt
               </a>
             </div>
           </div>
-
-          <aside className="hero-card" aria-label="Kontaktkort">
-            <div className="avatar-frame">
-              <img src="https://avatars.githubusercontent.com/u/180546490?v=4" alt="Roza Belay" />
-            </div>
-            <div>
-              <p className="availability">Tillgänglig för frontend/fullstack roller</p>
-              <h2>Roza Belay</h2>
-              <p>React, Node.js, webbsäkerhet och POS-integration.</p>
-            </div>
-            <div className="contact-grid">
-              {contactLinks.map((link) => (
-                <a key={link.href} href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noreferrer' : undefined}>
-                  {link.icon}
-                  <span>{link.label}</span>
-                </a>
-              ))}
-            </div>
-          </aside>
         </section>
 
         <section className="metrics-band" aria-label="Profil i korthet">
@@ -172,8 +153,8 @@ function App() {
             <span>Betalterminalintegration</span>
           </article>
           <article>
-            <strong>4</strong>
-            <span>Språk</span>
+            <strong>Security</strong>
+            <span>Webbsäkerhet i fokus</span>
           </article>
           <article>
             <strong>Fullstack</strong>
@@ -212,9 +193,8 @@ function App() {
         </section>
 
         <section id="skills" className="section-block split-section">
-          <div className="section-heading sticky-heading">
+          <div className="section-heading sticky-heading skills-heading-clean">
             <p className="eyebrow">Kompetenser</p>
-            <h2>Frontend-fokus med fullstack- och säkerhetsbredd.</h2>
             <p>
               Jag kombinerar UI-utveckling med backendförståelse, Android-erfarenhet och ett tydligt säkerhetstänk.
             </p>
@@ -280,34 +260,38 @@ function App() {
           </div>
         </section>
 
-        <section className="section-block language-section">
-          <div>
-            <p className="eyebrow">Språk</p>
-            <h2>Kommunicerar i flera teammiljöer.</h2>
-          </div>
-          <div className="language-list">
-            {languages.map((language) => <span key={language}>{language}</span>)}
-          </div>
-        </section>
-
-        <section id="contact" className="contact-section">
-          <div>
+        <section id="contact" className="contact-section contact-section-profile">
+          <div className="contact-copy">
             <p className="eyebrow">Kontakt</p>
             <h2>Vill du prata frontend, fullstack eller POS-integration?</h2>
             <p>Referenser lämnas på begäran.</p>
           </div>
-          <div className="contact-actions">
-            <a href="mailto:rozaybeyn.belay@gmail.com"><FaEnvelope /> Email</a>
-            <a href="tel:+46722746101"><FaPhone /> Ring</a>
-            <a href="https://linkedin.com/in/roza-ybeyn-belay-3b9054256" target="_blank" rel="noreferrer"><FaLinkedin /> LinkedIn</a>
-            <a href="https://github.com/Rozabelay339" target="_blank" rel="noreferrer"><FaGithub /> GitHub</a>
-          </div>
+          <aside className="contact-profile-card" aria-label="Kontaktkort för Roza Belay">
+            <div className="avatar-frame">
+              <img src="https://avatars.githubusercontent.com/u/180546490?v=4" alt="Roza Belay" />
+            </div>
+            <div>
+              <p className="availability">Tillgänglig för frontend/fullstack roller</p>
+              <h2>Roza Belay</h2>
+              <p>React, Node.js, webbsäkerhet och POS-integration.</p>
+            </div>
+            <div className="contact-grid">
+              {contactLinks.map((link) => (
+                <a key={link.href} href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noreferrer' : undefined}>
+                  {link.icon}
+                  <span>{link.label}</span>
+                </a>
+              ))}
+            </div>
+          </aside>
         </section>
       </main>
 
-      <footer>
-        <span>Roza Belay</span>
-        <span>Byggd med React, TypeScript och mörk violet design.</span>
+      <footer className="site-footer">
+        <div>
+          <span>Roza Belay</span>
+          <p>Fullstack Developer crafting secure, scalable and modern web experiences.</p>
+        </div>
         <div className="footer-icons" aria-hidden="true">
           <SiTypescript />
           <SiJavascript />
