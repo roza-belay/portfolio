@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import {
   FaAndroid,
   FaArrowUpRightFromSquare,
@@ -13,7 +14,26 @@ import {
   FaReact,
   FaShieldHalved,
 } from 'react-icons/fa6';
-import { SiExpress, SiJavascript, SiKotlin, SiMongodb, SiTypescript } from 'react-icons/si';
+import {
+  SiAndroidstudio,
+  SiBootstrap,
+  SiCss,
+  SiExpress,
+  SiFramer,
+  SiGit,
+  SiGithub,
+  SiHtml5,
+  SiJavascript,
+  SiJetpackcompose,
+  SiJsonwebtokens,
+  SiKotlin,
+  SiMongodb,
+  SiNodedotjs,
+  SiPostgresql,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from 'react-icons/si';
 
 type Project = {
   title: string;
@@ -39,7 +59,7 @@ const contactLinks = [
 ];
 
 const skillGroups = [
-  { title: 'Frontend', skills: ['React.js', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Bootstrap'], icon: <FaReact /> },
+  { title: 'Frontend', skills: ['React.js', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Tailwind CSS', 'Framer Motion', 'Bootstrap'], icon: <FaReact /> },
   { title: 'Backend', skills: ['Node.js', 'Express.js', 'REST API', 'MongoDB', 'SQL'], icon: <FaNodeJs /> },
   { title: 'Mobilutveckling', skills: ['Kotlin', 'Android Studio', 'Jetpack Compose'], icon: <FaAndroid /> },
   { title: 'Webbsäkerhet', skills: ['CORS', 'CSRF', 'XSS', 'SQL Injection', 'JWT'], icon: <FaShieldHalved /> },
@@ -98,33 +118,79 @@ const education: TimelineItem[] = [
 ];
 
 const strengths = ['Analytisk och problemlösande', 'Strukturerad och noggrann', 'Samarbetsvillig', 'Snabb inlärning', 'Teknisk anpassningsförmåga'];
-function App() {
+
+const skillIcons = {
+  'React.js': SiReact,
+  JavaScript: SiJavascript,
+  TypeScript: SiTypescript,
+  HTML: SiHtml5,
+  CSS: SiCss,
+  'Tailwind CSS': SiTailwindcss,
+  'Framer Motion': SiFramer,
+  Bootstrap: SiBootstrap,
+  'Node.js': SiNodedotjs,
+  'Express.js': SiExpress,
+  MongoDB: SiMongodb,
+  SQL: SiPostgresql,
+  Kotlin: SiKotlin,
+  'Android Studio': SiAndroidstudio,
+  'Jetpack Compose': SiJetpackcompose,
+  Git: SiGit,
+  GitHub: SiGithub,
+  JWT: SiJsonwebtokens,
+} as const;
+
+function SkillBadge({ skill }: { skill: string }) {
+  const Icon = skillIcons[skill as keyof typeof skillIcons] ?? FaCode;
+
   return (
-    <div className="site-shell">
-      <header className="top-nav">
-        <a className="brand" href="#home" aria-label="Roza Belay portfolio home">
-          <span>RB</span>
-          <strong>Roza Belay</strong>
-        </a>
-        <nav aria-label="Huvudnavigation">
-          <a href="#projects">Projekt</a>
-          <a href="#skills">Kompetenser</a>
-          <a href="#education">Utbildning</a>
-          <a href="#contact">Kontakt</a>
-        </nav>
-      </header>
+    <span className="skill-badge">
+      <Icon aria-hidden="true" />
+      {skill}
+    </span>
+  );
+}
+function App() {
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
+
+  useEffect(() => {
+    const handlePointerMove = (event: PointerEvent) => {
+      document.documentElement.style.setProperty('--mouse-x', `${event.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${event.clientY}px`);
+
+      const target = event.target instanceof Element ? event.target.closest<HTMLElement>('[data-glow]') : null;
+      if (!target) return;
+      const rect = target.getBoundingClientRect();
+      target.style.setProperty('--local-x', `${event.clientX - rect.left}px`);
+      target.style.setProperty('--local-y', `${event.clientY - rect.top}px`);
+    };
+
+    window.addEventListener('pointermove', handlePointerMove);
+    return () => window.removeEventListener('pointermove', handlePointerMove);
+  }, []);
+
+  return (
+    <>
+      <div className="cursor-glow" aria-hidden="true" />
+      <div className="site-shell">
+      <button className="theme-toggle" type="button" data-glow onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label="Växla mellan dark mode och light mode">
+        {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+      </button>
 
       <main>
         <section id="home" className="hero-section hero-section-clean">
-          <div className="hero-copy">
+          <div className="hero-copy" data-glow>
             <p className="eyebrow">Fullstack Utvecklare - frontend-fokus</p>
             <h1>Roza Belay</h1>
             <p className="hero-statement">Fullstack Developer crafting secure, scalable and modern web experiences</p>
             <p className="hero-lead">
-              Frontend-fokuserad fullstackutvecklare med fokus på React, Node.js och säker webbutveckling.
-              Bygger moderna och skalbara webbapplikationer samt POS-lösningar med betalterminalintegration
-              och komplexa betalflöden. Praktisk erfarenhet av Android/Kotlin, API-integrationer och utveckling
-              i verkliga produktionsnära miljöer.
+              Van att arbeta i agila team och att bygga skalbara och säkra system. Min bakgrund som civilingenjör
+              stärker min analytiska förmåga, medan utbildningen inom webbsäkerhet ger en modern grund för säkra
+              webbapplikationer.
             </p>
             <div className="hero-focus-grid" aria-label="Tekniska fokusområden">
               <span><FaReact /> React Frontend</span>
@@ -139,28 +205,56 @@ function App() {
               <a className="ghost-button" href="#projects">
                 <FaArrowUpRightFromSquare /> Se projekt
               </a>
+              <a className="ghost-button" href="#skills">
+                <FaCode /> Kompetenser
+              </a>
             </div>
           </div>
         </section>
 
-        <section className="metrics-band" aria-label="Profil i korthet">
-          <article>
-            <strong>2026</strong>
-            <span>Frontendexamen</span>
-          </article>
-          <article>
-            <strong>POS</strong>
-            <span>Betalterminalintegration</span>
-          </article>
-          <article>
-            <strong>Security</strong>
-            <span>Webbsäkerhet i fokus</span>
-          </article>
-          <article>
-            <strong>Fullstack</strong>
-            <span>React + Node.js</span>
-          </article>
+
+        <section id="skills" className="section-block tech-section">
+          <div className="tech-bento">
+            <article className="tech-card tech-card-large" data-glow>
+              <div className="skill-icon"><FaReact /></div>
+              <p className="eyebrow">Current Focus</p>
+              <h3>React, TypeScript & modern frontend</h3>
+              <p>Jag kombinerar UI-utveckling med backendförståelse, Android-erfarenhet och ett tydligt säkerhetstänk.</p>
+              <div className="tag-list">
+                {skillGroups[0].skills.map((skill) => <SkillBadge key={skill} skill={skill} />)}
+              </div>
+            </article>
+
+            <article className="tech-card tech-card-dark" data-glow>
+              <div className="skill-icon"><FaAndroid /></div>
+              <h3>POS & Payment Integration</h3>
+              <p>Payment SDK, split payments, refunds och terminalflöden i produktionsnära miljöer.</p>
+            </article>
+
+            <article className="tech-card" data-glow>
+              <div className="skill-icon"><FaNodeJs /></div>
+              <h3>Backend</h3>
+              <div className="tag-list">
+                {skillGroups[1].skills.map((skill) => <SkillBadge key={skill} skill={skill} />)}
+              </div>
+            </article>
+
+            <article className="tech-card" data-glow>
+              <div className="skill-icon"><FaShieldHalved /></div>
+              <h3>Webbsäkerhet</h3>
+              <div className="tag-list">
+                {skillGroups[3].skills.map((skill) => <SkillBadge key={skill} skill={skill} />)}
+              </div>
+            </article>
+
+            <article className="tech-card tech-card-wide" data-glow>
+              <div className="tag-list tech-strip">
+                {[...skillGroups[2].skills, ...skillGroups[4].skills].map((skill) => <SkillBadge key={skill} skill={skill} />)}
+              </div>
+            </article>
+          </div>
         </section>
+
 
         <section id="projects" className="section-block">
           <div className="section-heading">
@@ -168,9 +262,11 @@ function App() {
             <h2>Projekt som visar både UI-känsla och teknisk arkitektur.</h2>
           </div>
           <div className="project-stack">
-            {projectHighlights.map((project, index) => (
-              <article className="project-card" key={project.title}>
-                <div className="project-index">0{index + 1}</div>
+            {projectHighlights.map((project) => (
+              <article className="project-card" key={project.title} data-glow>
+                <div className="project-visual" aria-hidden="true">
+                  <FaCode />
+                </div>
                 <div className="project-content">
                   <p className="eyebrow">{project.eyebrow}</p>
                   <h3>{project.title}</h3>
@@ -192,37 +288,18 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className="section-block split-section">
-          <div className="section-heading sticky-heading skills-heading-clean">
-            <p className="eyebrow">Kompetenser</p>
-            <p>
-              Jag kombinerar UI-utveckling med backendförståelse, Android-erfarenhet och ett tydligt säkerhetstänk.
-            </p>
-          </div>
-          <div className="skill-grid">
-            {skillGroups.map((group) => (
-              <article className="skill-card" key={group.title}>
-                <div className="skill-icon">{group.icon}</div>
-                <h3>{group.title}</h3>
-                <div className="tag-list">
-                  {group.skills.map((skill) => <span key={skill}>{skill}</span>)}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
         <section className="section-block profile-section">
-          <div className="profile-panel">
+          <div className="profile-panel" data-glow>
             <p className="eyebrow">Profil</p>
             <h2>Strukturerad problemlösare med stark teknisk grund.</h2>
             <p>
-              Van att arbeta i agila team och att bygga skalbara och säkra system. Min bakgrund som civilingenjör
-              stärker min analytiska förmåga, medan utbildningen inom webbsäkerhet ger en modern grund för säkra
-              webbapplikationer.
+              Frontend-fokuserad fullstackutvecklare med fokus på React, Node.js och säker webbutveckling.
+              Bygger moderna och skalbara webbapplikationer samt POS-lösningar med betalterminalintegration
+              och komplexa betalflöden. Praktisk erfarenhet av Android/Kotlin, API-integrationer och utveckling
+              i verkliga produktionsnära miljöer.
             </p>
           </div>
-          <div className="strength-panel">
+          <div className="strength-panel" data-glow>
             {strengths.map((strength) => <span key={strength}>{strength}</span>)}
           </div>
         </section>
@@ -234,7 +311,7 @@ function App() {
           </div>
           <div className="timeline">
             {education.map((item) => (
-              <article className="timeline-item" key={item.title}>
+              <article className="timeline-item" key={item.title} data-glow>
                 <FaGraduationCap />
                 <div>
                   <span>{item.period}</span>
@@ -247,26 +324,25 @@ function App() {
           </div>
         </section>
 
-        <section className="section-block thesis-section">
+        <section className="section-block thesis-section" data-glow>
           <div>
             <p className="eyebrow">Examensarbete</p>
             <h2>POS-system med Payment SDK och betalterminalintegration.</h2>
           </div>
           <div className="thesis-grid">
-            <article><FaMobileScreen /><span>On-device och off-device arkitekturer</span></article>
-            <article><SiKotlin /><span>Android/Kotlin i verklig betalmiljö</span></article>
-            <article><FaDatabase /><span>Produktvarianter, kvittoflöden och orderdata</span></article>
-            <article><FaShieldHalved /><span>Analys av funktionella skillnader och utvecklingskomplexitet</span></article>
+            <article data-glow><FaMobileScreen /><span>On-device och off-device arkitekturer</span></article>
+            <article data-glow><SiKotlin /><span>Android/Kotlin i verklig betalmiljö</span></article>
+            <article data-glow><FaDatabase /><span>Produktvarianter, kvittoflöden och orderdata</span></article>
+            <article data-glow><FaShieldHalved /><span>Analys av funktionella skillnader och utvecklingskomplexitet</span></article>
           </div>
         </section>
 
-        <section id="contact" className="contact-section contact-section-profile">
+        <section id="contact" className="contact-section contact-section-profile" data-glow>
           <div className="contact-copy">
             <p className="eyebrow">Kontakt</p>
             <h2>Vill du prata frontend, fullstack eller POS-integration?</h2>
-            <p>Referenser lämnas på begäran.</p>
           </div>
-          <aside className="contact-profile-card" aria-label="Kontaktkort för Roza Belay">
+          <aside className="contact-profile-card" data-glow aria-label="Kontaktkort för Roza Belay">
             <div className="avatar-frame">
               <img src="https://avatars.githubusercontent.com/u/180546490?v=4" alt="Roza Belay" />
             </div>
@@ -287,10 +363,16 @@ function App() {
         </section>
       </main>
 
-      <footer className="site-footer">
+      <footer className="site-footer" data-glow>
         <div>
           <span>Roza Belay</span>
           <p>Fullstack Developer crafting secure, scalable and modern web experiences.</p>
+        </div>
+        <div className="footer-links">
+          <a href="#home">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
         </div>
         <div className="footer-icons" aria-hidden="true">
           <SiTypescript />
@@ -299,7 +381,8 @@ function App() {
           <SiExpress />
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }
 
