@@ -35,14 +35,6 @@ import {
   SiTypescript,
 } from 'react-icons/si';
 
-type Project = {
-  title: string;
-  eyebrow: string;
-  description: string;
-  impact: string;
-  stack: string[];
-  links: Array<{ label: string; href: string }>;
-};
 
 type TimelineItem = {
   title: string;
