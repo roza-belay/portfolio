@@ -1,5 +1,7 @@
-import { FaArrowUpRightFromSquare, FaCode } from 'react-icons/fa6';
+import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 import { projectHighlights } from '../data/portfolioData';
+
+import './styles/ProjectsSection.css';
 
 export default function ProjectsSection() {
   return (
@@ -16,8 +18,8 @@ export default function ProjectsSection() {
             key={project.title}
             data-glow
           >
-            <div className="project-visual" aria-hidden="true">
-              <FaCode />
+            <div className="project-visual">
+              <img src={project.image.src} alt={project.image.alt} />
             </div>
 
             <div className="project-content">

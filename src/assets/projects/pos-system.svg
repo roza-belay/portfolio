@@ -1,0 +1,49 @@
+<svg width="920" height="620" viewBox="0 0 920 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="920" height="620" fill="#100018"/>
+  <rect width="920" height="620" fill="url(#grid)" opacity="0.75"/>
+  <circle cx="214" cy="126" r="260" fill="#39E6FF" opacity="0.16"/>
+  <circle cx="720" cy="180" r="260" fill="#B85CFF" opacity="0.24"/>
+  <rect x="42" y="92" width="532" height="406" rx="34" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.22"/>
+  <rect x="76" y="130" width="164" height="34" rx="17" fill="#39E6FF" fill-opacity="0.14" stroke="#39E6FF" stroke-opacity="0.32"/>
+  <text x="96" y="153" fill="#8AF2FF" font-family="Arial, sans-serif" font-size="15" font-weight="800">Verifone PSDK</text>
+  <text x="76" y="224" fill="#FFF7FF" font-family="Arial, sans-serif" font-size="44" font-weight="900">POS-system</text>
+  <text x="76" y="274" fill="#D8C3E7" font-family="Arial, sans-serif" font-size="22" font-weight="800">On-device och off-device betalflöden</text>
+  <text x="76" y="315" fill="#D8C3E7" font-family="Arial, sans-serif" font-size="18">Android/Kotlin, kvitto, scanner och terminalintegration.</text>
+  <g>
+    <rect x="76" y="358" width="138" height="92" rx="18" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.14"/>
+    <text x="96" y="395" fill="#FFF7FF" font-family="Arial, sans-serif" font-size="18" font-weight="800">On-device</text>
+    <text x="96" y="424" fill="#39E6FF" font-family="Arial, sans-serif" font-size="14">Internt PSDK</text>
+    <rect x="230" y="358" width="138" height="92" rx="18" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.14"/>
+    <text x="250" y="395" fill="#FFF7FF" font-family="Arial, sans-serif" font-size="18" font-weight="800">Off-device</text>
+    <text x="250" y="424" fill="#39E6FF" font-family="Arial, sans-serif" font-size="14">TCP/IP</text>
+    <rect x="384" y="358" width="138" height="92" rx="18" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.14"/>
+    <text x="404" y="395" fill="#FFF7FF" font-family="Arial, sans-serif" font-size="18" font-weight="800">Kvitto</text>
+    <text x="404" y="424" fill="#39E6FF" font-family="Arial, sans-serif" font-size="14">Scanner</text>
+  </g>
+  <rect x="628" y="60" width="250" height="492" rx="38" fill="url(#terminal)" stroke="white" stroke-opacity="0.16"/>
+  <rect x="650" y="92" width="206" height="314" rx="26" fill="#F7FDFF"/>
+  <text x="672" y="135" fill="#160321" font-family="Arial, sans-serif" font-size="24" font-weight="900">Order</text>
+  <text x="672" y="178" fill="#160321" font-family="Arial, sans-serif" font-size="18" font-weight="700">Kortbetalning</text>
+  <text x="672" y="212" fill="#160321" font-family="Arial, sans-serif" font-size="18" font-weight="700">428 SEK</text>
+  <rect x="672" y="260" width="162" height="56" rx="18" fill="url(#pay)"/>
+  <text x="716" y="295" fill="#09000F" font-family="Arial, sans-serif" font-size="16" font-weight="900">Read card</text>
+  <rect x="650" y="430" width="206" height="82" rx="20" fill="#17121F" stroke="white" stroke-opacity="0.12"/>
+  <rect x="690" y="462" width="126" height="118" rx="0" fill="#FFFDF8"/>
+  <text x="706" y="488" fill="#160321" font-family="Arial, sans-serif" font-size="12" font-weight="900">GARDECO POS</text>
+  <text x="706" y="516" fill="#160321" font-family="Arial, sans-serif" font-size="10">Payment approved</text>
+  <text x="706" y="534" fill="#160321" font-family="Arial, sans-serif" font-size="10">Card **** 2941</text>
+  <text x="706" y="558" fill="#160321" font-family="Arial, sans-serif" font-size="10" font-weight="900">Total 428 SEK</text>
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" stroke="white" stroke-opacity="0.055"/>
+    </pattern>
+    <linearGradient id="terminal" x1="628" y1="60" x2="878" y2="552" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#27202F"/>
+      <stop offset="1" stop-color="#09000F"/>
+    </linearGradient>
+    <linearGradient id="pay" x1="672" y1="260" x2="834" y2="316" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D7A4FF"/>
+      <stop offset="1" stop-color="#39E6FF"/>
+    </linearGradient>
+  </defs>
+</svg>

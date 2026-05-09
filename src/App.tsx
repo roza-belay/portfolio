@@ -11,10 +11,9 @@ import HeroSection from './sections/HeroSection';
 import SkillsSection from './sections/SkillsSection';
 import ProjectsSection from './sections/ProjectsSection';
 import ContactSection from './sections/ContactSection';
-import ProfileSection from './sections/ProfileSection';
 import ThesisSection from './sections/ThesisSection';
 
-import './styles.css';
+import './styles/App.css';
 
 function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
@@ -82,8 +81,6 @@ function App() {
           <HeroSection />
           <SkillsSection />
           <ProjectsSection />
-          <ProfileSection />
-         
           <ThesisSection />
           <ContactSection />
         </main>

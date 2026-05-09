@@ -8,6 +8,8 @@ import {
   FaShieldHalved,
 } from 'react-icons/fa6';
 
+import './styles/HeroSection.css';
+
 export default function HeroSection() {
   return (
     <section id="home" className="hero-section hero-section-clean">

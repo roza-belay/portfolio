@@ -33,6 +33,9 @@ import {
 } from 'react-icons/si';
 
 import type { Project, TimelineItem } from '../types';
+import chatAppImage from '../assets/projects/chat-app.svg';
+import posSystemImage from '../assets/projects/pos-system.svg';
+import webshopImage from '../assets/projects/webshop.svg';
 
 export const contactLinks = [
   {
@@ -97,12 +100,16 @@ export const skillGroups = [
 export const projectHighlights: Project[] = [
   {
     title: 'POS-system',
-    eyebrow: 'LIA',
+    eyebrow: 'Examensarbete / LIA',
     description:
-      'Utvecklade en mobil kassaapplikation med fokus på säkra betallösningar via Verifone PSDK. Implementerade en off-device arkitektur för att hantera kommunikation med externa betalterminaler.',
+      'Teknisk förstudie och implementation av ett Android-baserat kassaflöde med Verifone PSDK, där on-device och off-device jämfördes i praktiken.',
     impact:
-      'Fokus på split payments, kortbetalningar, refunds, produktvarianter, kvittoflöden och integrationslager.',
-    stack: ['Kotlin', 'Android', 'PSDK', 'Architecture', 'Payments'],
+      'Analysen fokuserade på arkitektur, uppkoppling, kvittoutskrift, scanner, hårdvaruval och utvecklingskomplexitet.',
+    stack: ['Kotlin', 'Android', 'Verifone PSDK', 'Epson ePOS', 'TCP/IP'],
+    image: {
+      src: posSystemImage,
+      alt: 'Visuell mockup av ett POS-system med betalterminal och kvittoflöde',
+    },
     links: [
       {
         label: 'GitHub',
@@ -122,6 +129,10 @@ export const projectHighlights: Project[] = [
     impact:
       'Visar frontendstruktur, formulärflöden, säkerhetsmedvetenhet och integration mot backend-tjänster.',
     stack: ['React', 'Vite', 'Axios', 'DOMPurify', 'JWT'],
+    image: {
+      src: chatAppImage,
+      alt: 'Visuell mockup av en säker React chat-applikation',
+    },
     links: [
       {
         label: 'GitHub',
@@ -137,6 +148,10 @@ export const projectHighlights: Project[] = [
     impact:
       'Binder ihop React-komponenter, REST API, datamodeller och användarresa i ett portfolio-vänligt projekt.',
     stack: ['React', 'Node.js', 'Express', 'MongoDB', 'REST API'],
+    image: {
+      src: webshopImage,
+      alt: 'Visuell mockup av en webbshop med produktkort och kundvagn',
+    },
     links: [
       {
         label: 'GitHub',

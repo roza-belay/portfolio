@@ -1,0 +1,135 @@
+.project-stack {
+  display: grid;
+  gap: 28px;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.4fr) minmax(0, 0.6fr);
+  min-height: 410px;
+  padding: 8px;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at var(--local-x, 50%) var(--local-y, 50%), rgba(184, 92, 255, 0.18), transparent 36%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035)),
+    var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px) saturate(135%);
+  transition: transform 0.28s ease, border-color 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--line-strong);
+  background:
+    radial-gradient(circle at var(--local-x, 50%) var(--local-y, 50%), rgba(184, 92, 255, 0.22), transparent 36%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045)),
+    var(--panel-hover);
+  box-shadow: var(--hover-shadow);
+}
+
+.project-visual {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at var(--local-x, 50%) var(--local-y, 50%), rgba(57, 230, 255, 0.22), transparent 35%),
+    linear-gradient(135deg, rgba(184, 92, 255, 0.3), rgba(18, 0, 26, 0.9));
+  background-size: 26px 26px, 26px 26px, cover, cover;
+  color: rgba(255, 247, 255, 0.82);
+}
+
+:root[data-theme='light'] .project-visual {
+  color: rgba(27, 6, 38, 0.74);
+  background:
+    linear-gradient(rgba(55, 12, 78, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(55, 12, 78, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at var(--local-x, 50%) var(--local-y, 50%), rgba(57, 230, 255, 0.25), transparent 36%),
+    linear-gradient(135deg, rgba(216, 180, 254, 0.72), rgba(255, 255, 255, 0.86));
+  background-size: 26px 26px, 26px 26px, cover, cover;
+}
+
+.project-visual img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  transform: scale(1.01);
+  transition: transform 0.34s ease, filter 0.34s ease;
+}
+
+.project-card:hover .project-visual img {
+  filter: saturate(1.12) contrast(1.04);
+  transform: scale(1.055);
+}
+
+.project-card:nth-child(even) .project-visual {
+  order: 2;
+}
+
+.project-card:nth-child(even) .project-content {
+  order: 1;
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(22px, 4vw, 44px);
+}
+
+.project-content h3 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-size: clamp(1.45rem, 2.8vw, 2.35rem);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.project-content p {
+  max-width: 860px;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.impact {
+  color: #e8d6f5 !important;
+  font-weight: 700;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 980px) {
+  .project-card,
+  .project-card:nth-child(even) .project-visual,
+  .project-card:nth-child(even) .project-content {
+    grid-template-columns: 1fr;
+    order: initial;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+
+  .project-visual {
+    min-height: 210px;
+  }
+}

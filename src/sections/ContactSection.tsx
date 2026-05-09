@@ -20,6 +20,8 @@ import {
 
 import { contactLinks } from '../data/portfolioData';
 
+import './styles/ContactSection.css';
+
 export default function ContactSection() {
   return (
     <section id="contact" className="contact-section-modern">

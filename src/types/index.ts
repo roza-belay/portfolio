@@ -4,6 +4,10 @@ export type Project = {
   description: string;
   impact: string;
   stack: string[];
+  image: {
+    src: string;
+    alt: string;
+  };
   links: Array<{ label: string; href: string }>;
 };
 

@@ -2,6 +2,8 @@ import { FaAndroid, FaNodeJs, FaReact, FaShieldHalved } from 'react-icons/fa6';
 import { skillGroups } from '../data/portfolioData';
 import SkillBadge from '../components/SkillBadge';
 
+import './styles/SkillsSection.css';
+
 export default function SkillsSection() {
   return (
     <section id="skills" className="section-block tech-section">
@@ -32,28 +34,25 @@ export default function SkillsSection() {
             <FaAndroid />
           </div>
 
-          <p className="eyebrow">POS & Payment Platform</p>
+          <p className="eyebrow">Mobil utveckling</p>
 
           <h3>
-            Android POS-system med Payment SDK och avancerade betalflöden
+            Android, Kotlin och integrationsnära apputveckling
           </h3>
 
           <p>
-            Utvecklat under LIA där vi byggde ett komplett POS-system från
-            grunden med on-device och off-device betalningar,
-            repository-baserad arkitektur, split payments, refunds och
-            stabil terminalintegration.
+            Erfarenhet av mobil utveckling där användarflöden,
+            hårdvarunära funktioner och stabil arkitektur behöver fungera
+            tillsammans i praktiska miljöer.
           </p>
 
           <div className="tag-list">
             <span>Kotlin</span>
             <span>Android Studio</span>
             <span>Room Database</span>
-            <span>Payment SDK</span>
-            <span>Split Payments</span>
-            <span>Refunds</span>
-            <span>Epson ePOS</span>
-            <span>Barcode Scanning</span>
+            <span>Jetpack Compose</span>
+            <span>API-integration</span>
+            <span>Apparkitektur</span>
           </div>
         </article>
 
