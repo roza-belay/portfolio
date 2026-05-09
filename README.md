@@ -13,7 +13,7 @@ A dark violet React + TypeScript portfolio for Roza Belay, fullstack developer w
 ## Run locally
 
 ```bash
-npm install
+npm ins
 npm run dev
 ```
 
