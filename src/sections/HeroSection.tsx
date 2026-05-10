@@ -12,61 +12,44 @@ import './styles/HeroSection.css';
 
 export default function HeroSection() {
   return (
-    <section id="home" className="hero-section hero-section-clean">
-      <div className="hero-copy" data-glow>
-        <p className="eyebrow">
-          Fullstack Utvecklare - frontend-fokus
-        </p>
+   <section id="home" className="hero-modern">
+  <div className="hero-left" data-glow>
+    <p className="hero-badge">Frontend & Fullstack Developer</p>
 
-        <h1>Roza Belay</h1>
+    <h1>
+      Building secure and modern
+      <span> digital experiences</span>
+    </h1>
 
-        <p className="hero-statement">
-          Fullstack Developer crafting secure, scalable and modern web
-          experiences
-        </p>
+    <p className="hero-text">
+      Fullstack developer med fokus på React, moderna webbapplikationer,
+      Android POS-system och säker frontend-utveckling.
+    </p>
 
-        <p className="hero-lead">
-          Van att arbeta i agila team och att bygga skalbara och säkra
-          system. Min bakgrund som civilingenjör stärker min analytiska
-          förmåga, medan utbildningen inom webbsäkerhet ger en modern
-          grund för säkra webbapplikationer.
-        </p>
+    <div className="hero-buttons">
+      <a href="#projects" className="primary-button">
+        View Projects
+      </a>
 
-        <div
-          className="hero-focus-grid"
-          aria-label="Tekniska fokusområden"
-        >
-          <span>
-            <FaReact /> React Frontend
-          </span>
+      <a href="#contact" className="ghost-button">
+        Contact Me
+      </a>
+    </div>
+  </div>
 
-          <span>
-            <FaNodeJs /> Node.js Backend
-          </span>
+  <div className="hero-right" data-glow>
+    <div className="hero-image-card pos-card">
+      <img
+        src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop"
+        alt="POS Terminal"
+      />
 
-          <span>
-            <FaShieldHalved /> Secure Web
-          </span>
-
-          <span>
-            <FaMobileScreen /> POS Integration
-          </span>
-        </div>
-
-        <div className="hero-actions">
-          <a className="primary-button" href="#contact">
-            <FaEnvelope /> Kontakt
-          </a>
-
-          <a className="ghost-button" href="#projects">
-            <FaArrowUpRightFromSquare /> Se projekt
-          </a>
-
-          <a className="ghost-button" href="#skills">
-            <FaCode /> Kompetenser
-          </a>
-        </div>
+      <div className="hero-overlay">
+        <h3>POS Payment Platform</h3>
+        <p>Android • Verifone • Secure Payments</p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
   );
 }

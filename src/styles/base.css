@@ -13,10 +13,11 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.026) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px),
-    linear-gradient(145deg, #100018 0%, #190022 44%, #07000d 100%);
-  background-size: 32px 32px, 32px 32px, cover;
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(120, 40, 180, 0.35), transparent 55%),
+    linear-gradient(155deg, #020008 0%, #0a0214 38%, #030006 100%);
+  background-size: 32px 32px, 32px 32px, cover, cover;
   color: var(--text);
 }
 
@@ -36,21 +37,27 @@ body::after {
 }
 
 body::before {
-  inset: -24% -10%;
+  inset: -28% -12%;
   z-index: -2;
   background:
-    linear-gradient(110deg, transparent 0 18%, rgba(184, 92, 255, 0.14) 28%, transparent 40% 100%),
-    linear-gradient(245deg, transparent 0 25%, rgba(57, 230, 255, 0.08) 38%, transparent 52% 100%),
-    linear-gradient(15deg, transparent 0 34%, rgba(255, 111, 174, 0.08) 45%, transparent 58% 100%);
-  filter: blur(34px) saturate(120%);
-  opacity: 0.72;
+    linear-gradient(108deg, transparent 0 16%, rgba(147, 51, 234, 0.16) 30%, transparent 46% 100%),
+    linear-gradient(248deg, transparent 0 22%, rgba(34, 211, 238, 0.07) 40%, transparent 54% 100%),
+    linear-gradient(18deg, transparent 0 30%, rgba(236, 72, 153, 0.06) 48%, transparent 62% 100%);
+  filter: blur(40px) saturate(125%);
+  opacity: 0.58;
 }
 
 body::after {
   inset: 0;
   z-index: -1;
-  background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.045), transparent 28%, rgba(255, 255, 255, 0.025) 54%, transparent 78%);
-  opacity: 0.18;
+  background-image: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0.032),
+    transparent 26%,
+    rgba(255, 255, 255, 0.018) 52%,
+    transparent 82%
+  );
+  opacity: 0.12;
   mix-blend-mode: screen;
 }
 
@@ -94,5 +101,11 @@ img {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smoke-background {
+    display: none;
   }
 }

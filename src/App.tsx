@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 
 import {
   SiExpress,
@@ -6,6 +6,8 @@ import {
   SiMongodb,
   SiTypescript,
 } from 'react-icons/si';
+
+const SmokeBackground = lazy(() => import('./components/SmokeBackground'));
 
 import HeroSection from './sections/HeroSection';
 import SkillsSection from './sections/SkillsSection';
@@ -62,6 +64,10 @@ function App() {
 
   return (
     <>
+      <Suspense fallback={null}>
+        <SmokeBackground theme={theme} />
+      </Suspense>
+
       <div className="cursor-glow" aria-hidden="true" />
 
       <div className="site-shell">

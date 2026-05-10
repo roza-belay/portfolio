@@ -33,9 +33,9 @@ import {
 } from 'react-icons/si';
 
 import type { Project, TimelineItem } from '../types';
-import chatAppImage from '../assets/projects/chat-app.svg';
-import posSystemImage from '../assets/projects/pos-system.svg';
-import webshopImage from '../assets/projects/webshop.svg';
+import chatAppImage from '../assets/projects/project-chat-hero.png';
+import posSystemImage from '../assets/projects/project-pos-hero.png';
+import webshopImage from '../assets/projects/project-webshop-hero.png';
 
 export const contactLinks = [
   {
@@ -108,7 +108,7 @@ export const projectHighlights: Project[] = [
     stack: ['Kotlin', 'Android', 'Verifone PSDK', 'Epson ePOS', 'TCP/IP'],
     image: {
       src: posSystemImage,
-      alt: 'Visuell mockup av ett POS-system med betalterminal och kvittoflöde',
+      alt: 'Android POS och betalterminal i mörk premium miljö med lila och cyan ljus',
     },
     links: [
       {
@@ -131,7 +131,7 @@ export const projectHighlights: Project[] = [
     stack: ['React', 'Vite', 'Axios', 'DOMPurify', 'JWT'],
     image: {
       src: chatAppImage,
-      alt: 'Visuell mockup av en säker React chat-applikation',
+      alt: 'Säker chattapp i mörkt UI med lila och cyan accenter',
     },
     links: [
       {
@@ -150,7 +150,7 @@ export const projectHighlights: Project[] = [
     stack: ['React', 'Node.js', 'Express', 'MongoDB', 'REST API'],
     image: {
       src: webshopImage,
-      alt: 'Visuell mockup av en webbshop med produktkort och kundvagn',
+      alt: 'Modern dark mode webbshop med glaskort och produktgrid',
     },
     links: [
       {
