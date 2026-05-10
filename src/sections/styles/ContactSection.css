@@ -14,6 +14,18 @@
     var(--panel);
   box-shadow: var(--shadow);
   backdrop-filter: blur(22px) saturate(150%);
+  transition:
+    transform 0.55s var(--ease-spring, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color 0.35s ease,
+    box-shadow 0.55s var(--ease-spring, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .contact-section-modern:hover {
+    transform: translateY(-8px);
+    border-color: var(--line-strong);
+    box-shadow: var(--hover-shadow);
+  }
 }
 
 .contact-intro {
@@ -55,13 +67,24 @@
   color: var(--cyan);
   font-size: 1rem;
   font-weight: 700;
-  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  transition:
+    transform 0.45s var(--ease-spring, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.45s var(--ease-spring, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .contact-tags span:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   border-color: var(--cyan);
   background: rgba(57, 230, 255, 0.08);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .contact-tags span:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 18px 40px rgba(124, 58, 237, 0.18);
+  }
 }
 
 .contact-card-modern {
@@ -74,14 +97,25 @@
   border-radius: 28px;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
   backdrop-filter: blur(16px);
-  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.5s var(--ease-spring, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.5s var(--ease-spring, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .contact-card-modern:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   border-color: rgba(57, 230, 255, 0.25);
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .contact-card-modern:hover {
+    transform: translateY(-14px) scale(1.01) rotateZ(-0.4deg);
+    box-shadow: 0 36px 90px rgba(0, 0, 0, 0.38);
+  }
 }
 
 .contact-profile-top {
@@ -158,13 +192,24 @@
   background: rgba(255, 255, 255, 0.04);
   color: var(--text);
   text-decoration: none;
-  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  transition:
+    transform 0.45s var(--ease-spring, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.45s var(--ease-spring, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .contact-links-modern a:hover {
-  transform: translateX(4px);
+  transform: translateX(6px);
   border-color: rgba(57, 230, 255, 0.24);
   background: rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .contact-links-modern a:hover {
+    transform: translateX(12px) scale(1.02);
+    box-shadow: 0 14px 36px rgba(34, 211, 238, 0.12);
+  }
 }
 
 .contact-links-modern a span:first-child {
@@ -176,6 +221,17 @@
   border-radius: 12px;
   background: rgba(57, 230, 255, 0.1);
   color: var(--cyan);
+  transition: transform 0.45s var(--ease-spring, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.contact-links-modern a:hover span:first-child {
+  transform: scale(1.08) rotate(-6deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-links-modern a:hover span:first-child {
+    transform: none;
+  }
 }
 
 .contact-links-modern a span:last-child {
