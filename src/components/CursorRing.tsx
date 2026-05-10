@@ -1,47 +1,37 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * Smooth lagging ring + dot som följer pekaren (desktop).
+ * Rök/glöd som följer musen. Wrapper får endast translate från JS;
+ * puls/animering sker på barnet så inget krockar med pointer-position.
  */
 export default function CursorRing() {
-  const ringRef = useRef<HTMLDivElement>(null);
-  const dotRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   const target = useRef({ x: 0, y: 0 });
-  const ring = useRef({ x: 0, y: 0 });
-  const dot = useRef({ x: 0, y: 0 });
+  const current = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    const ringEl = ringRef.current;
-    const dotEl = dotRef.current;
+    if (typeof window === 'undefined') return undefined;
 
-    if (!ringEl || !dotEl) return undefined;
+    const root = rootRef.current;
+
+    if (!root) return undefined;
 
     const cx = window.innerWidth / 2;
     const cy = window.innerHeight / 2;
 
     target.current = { x: cx, y: cy };
-    ring.current = { x: cx, y: cy };
-    dot.current = { x: cx, y: cy };
+    current.current = { x: cx, y: cy };
 
     let frame = 0;
 
     const tick = () => {
       const t = target.current;
 
-      ring.current.x += (t.x - ring.current.x) * 0.12;
-      ring.current.y += (t.y - ring.current.y) * 0.12;
+      current.current.x += (t.x - current.current.x) * 0.14;
+      current.current.y += (t.y - current.current.y) * 0.14;
 
-      dot.current.x += (t.x - dot.current.x) * 0.28;
-      dot.current.y += (t.y - dot.current.y) * 0.28;
-
-      const rx = ring.current.x;
-      const ry = ring.current.y;
-      const dx = dot.current.x;
-      const dy = dot.current.y;
-
-      ringEl.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
-      dotEl.style.transform = `translate3d(${dx}px, ${dy}px, 0) translate(-50%, -50%)`;
+      root.style.transform = `translate3d(${current.current.x}px, ${current.current.y}px, 0)`;
 
       frame = requestAnimationFrame(tick);
     };
@@ -62,9 +52,8 @@ export default function CursorRing() {
   }, []);
 
   return (
-    <>
-      <div ref={ringRef} className="cursor-ring" aria-hidden="true" />
-      <div ref={dotRef} className="cursor-dot" aria-hidden="true" />
-    </>
+    <div ref={rootRef} className="smoke-cursor-root">
+      <div className="smoke-cursor-glow" aria-hidden="true" />
+    </div>
   );
 }

@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 
+import { FaMoon, FaSun } from 'react-icons/fa6';
 import {
   SiExpress,
   SiJavascript,
@@ -7,7 +8,11 @@ import {
   SiTypescript,
 } from 'react-icons/si';
 
-const SmokeBackground = lazy(() => import('./components/SmokeBackground'));
+import CursorRing from './components/CursorRing';
+
+const SmokeBackground = lazy(
+  () => import('./components/SmokeBackground')
+);
 
 import HeroSection from './sections/HeroSection';
 import SkillsSection from './sections/SkillsSection';
@@ -68,6 +73,8 @@ function App() {
         <SmokeBackground theme={theme} />
       </Suspense>
 
+      <CursorRing />
+
       <div className="cursor-glow" aria-hidden="true" />
 
       <div className="site-shell">
@@ -78,16 +85,41 @@ function App() {
           onClick={() =>
             setTheme(theme === 'dark' ? 'light' : 'dark')
           }
-          aria-label="Växla mellan dark mode och light mode"
+          aria-label={
+            theme === 'dark'
+              ? 'Byt till ljust läge'
+              : 'Byt till mörkt läge'
+          }
         >
-          {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          <span className="theme-toggle-icons">
+            <FaSun
+              aria-hidden
+              className={
+                theme === 'light'
+                  ? 'theme-icon-active'
+                  : 'theme-icon-idle'
+              }
+            />
+            <FaMoon
+              aria-hidden
+              className={
+                theme === 'dark'
+                  ? 'theme-icon-active'
+                  : 'theme-icon-idle'
+              }
+            />
+          </span>
         </button>
 
         <main>
           <HeroSection />
+
           <SkillsSection />
+
           <ProjectsSection />
+
           <ThesisSection />
+
           <ContactSection />
         </main>
 
@@ -96,22 +128,28 @@ function App() {
             <span>Roza Belay</span>
 
             <p>
-              Fullstack Developer crafting secure, scalable and modern
-              web experiences.
+              Fullstack Developer crafting secure, scalable and modern web
+              experiences.
             </p>
           </div>
 
           <div className="footer-links">
             <a href="#home">Home</a>
+
             <a href="#projects">Projects</a>
+
             <a href="#skills">Skills</a>
+
             <a href="#contact">Contact</a>
           </div>
 
           <div className="footer-icons" aria-hidden="true">
             <SiTypescript />
+
             <SiJavascript />
+
             <SiMongodb />
+
             <SiExpress />
           </div>
         </footer>
