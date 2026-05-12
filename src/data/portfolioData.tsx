@@ -100,7 +100,7 @@ export const skillGroups = [
 export const projectHighlights: Project[] = [
   {
     title: 'POS-system',
-    eyebrow: 'Examensarbete / LIA',
+    eyebrow: 'LIA',
     description:
       'Teknisk förstudie och implementation av ett Android-baserat kassaflöde med Verifone PSDK, där on-device och off-device jämfördes i praktiken.',
     impact:

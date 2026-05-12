@@ -102,7 +102,7 @@ export default function ContactSection() {
 
           <a
             className="ghost-button"
-            href="https://github.com/Rozabelay339"
+            href="https://github.com/roza-belay"
             target="_blank"
             rel="noreferrer"
           >

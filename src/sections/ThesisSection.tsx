@@ -1,24 +1,23 @@
 import {
-  FaDatabase,
-  FaMobileScreen,
-  FaShieldHalved,
-} from 'react-icons/fa6';
-
-import { SiKotlin } from 'react-icons/si';
+  SiJetpackcompose,
+  SiKotlin,
+  SiNodedotjs,
+  SiSqlite,
+} from 'react-icons/si';
 
 import './styles/ThesisSection.css';
 
 const thesisQuestions = [
   'Vilka tekniska skillnader och likheter finns mellan on-device och off-device integration med Verifones PSDK?',
-  'Hur påverkar integrationsvalet kassasystemets funktioner?',
-  'Hur påverkas utvecklingsprocessen och implementationskomplexiteten?',
+  'Hur påverkar integrationsvalet kassasystemets funktioner och hårdvaruberoenden?',
+  'Hur påverkas utvecklingsprocessen och implementationskomplexiteten av OD respektive OffD?',
 ];
 
 const thesisResults = [
   {
     label: 'Payment App',
-    value: '0,16 s',
-    detail: 'längre initiering i off-device i medelvärde',
+    value: '5,9%',
+    detail: 'kortare initieringstid i OD implementationen',
   },
   {
     label: 'Skanning',
@@ -41,22 +40,25 @@ export default function ThesisSection() {
       <div className="thesis-copy">
         <p className="eyebrow">Examensarbete</p>
 
-        <h2>
-          On-device och off-device integration med Verifones Payment SDK.
-        </h2>
+        <h3>
+          On-device kontra off-device:
+          tekniska konsekvenser av
+          betalterminalintegrationsstrategi med Verifones PSDK
+        </h3>
 
         <p>
-          Examensarbetet undersökte hur valet mellan on-device och
-          off-device påverkar implementationen av ett Android-baserat
-          kassasystem. Arbetet genomfördes som en explorativ fallstudie
-          där två integrationsstrategier jämfördes tekniskt,
-          funktionellt och utvecklingsmässigt.
+          Examensarbetet undersöker hur valet mellan on-device (OD)
+          och off-device (OffD) integration påverkar implementationen
+          av Android-baserade kassasystem. Studien genomfördes som en
+          explorativ fallstudie där två integrationsstrategier jämfördes
+          utifrån teknisk implementation, funktionella skillnader och
+          utvecklingskomplexitet.
         </p>
 
         <div className="thesis-meta">
-          <span>Frontendutveckling med webbsäkerhet</span>
-          <span>Vårtermin 2026</span>
-          <span>Roza Belay</span>
+          <span>FWK24S</span>
+          <span>VT 26</span>
+          <span>Angelika Friis & Roza Belay</span>
         </div>
       </div>
 
@@ -65,9 +67,9 @@ export default function ThesisSection() {
           <p className="eyebrow">Syfte och frågeställningar</p>
 
           <p>
-            Syftet var att förstå vilka konsekvenser integrationsvalet
-            får för arkitektur, funktioner, hårdvaruberoenden och
-            utvecklingskomplexitet.
+            Syftet var att analysera hur integrationsstrategin påverkar
+            systemarkitektur, hårdvaruberoenden, funktionalitet och
+            utvecklingsprocess vid implementation av Verifones Payment SDK.
           </p>
 
           <ul>
@@ -79,23 +81,35 @@ export default function ThesisSection() {
 
         <div className="thesis-grid">
           <article data-glow>
-            <FaMobileScreen />
-            <span>On-device gav en mer sammanhållen lösning med färre externa beroenden.</span>
+            <SiJetpackcompose />
+            <span>
+              OD gav en mer sammanhållen arkitektur där betalning,
+              scanner och kvittoutskrift kunde hanteras inom samma enhet.
+            </span>
           </article>
 
           <article data-glow>
             <SiKotlin />
-            <span>Off-device krävde mer nätverkslogik men gav större flexibilitet i hårdvaruval.</span>
+            <span>
+              Båda implementationerna utvecklades i Kotlin för Android
+              och använde samma grundläggande betalningsflöde via PSDK.
+            </span>
           </article>
 
           <article data-glow>
-            <FaDatabase />
-            <span>Betalningslogiken kunde återanvändas genom ett gemensamt API-lager.</span>
+            <SiNodedotjs />
+            <span>
+              OffD introducerade mer nätverkslogik och anslutningshantering
+              genom kommunikation mellan flera enheter via TCP/IP.
+            </span>
           </article>
 
           <article data-glow>
-            <FaShieldHalved />
-            <span>Skillnaderna uppstod främst i infrastruktur, kvitto, scanner och uppkoppling.</span>
+            <SiSqlite />
+            <span>
+              Ett gemensamt abstraktionslager gjorde det möjligt att
+              återanvända stora delar av betalningslogiken mellan OD och OffD.
+            </span>
           </article>
         </div>
 
@@ -113,12 +127,13 @@ export default function ThesisSection() {
           <p className="eyebrow">Slutsats</p>
 
           <p>
-            On-device passar bäst när enkel installation, portabilitet
-            och robusthet utan nätverk är viktigast. Off-device passar
-            bättre när verksamheten behöver välja separat kvittoskrivare,
-            handskanner eller annan specialiserad hårdvara. Ett tydligt
-            abstraktionslager rekommenderas eftersom det minskar påverkan
-            på affärslogiken när integrationsstrategin behöver bytas.
+            Resultatet visar att OD lämpar sig bäst i miljöer där enkel
+            installation, mobilitet och begränsat beroende av nätverk är
+            viktigt. OffD lämpar sig bättre när verksamheten behöver större
+            flexibilitet i val av kringutrustning såsom externa scanners och
+            kvittoskrivare. Studien visar även att tydliga abstraktionslager
+            minskar beroendet till specifik hårdvara och förenklar framtida
+            byte av integrationsstrategi.
           </p>
         </div>
       </div>
