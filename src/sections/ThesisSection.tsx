@@ -7,31 +7,39 @@ import {
 
 import './styles/ThesisSection.css';
 
-const thesisQuestions = [
-  'Vilka tekniska skillnader och likheter finns mellan on-device och off-device integration med Verifones PSDK?',
-  'Hur påverkar integrationsvalet kassasystemets funktioner och hårdvaruberoenden?',
-  'Hur påverkas utvecklingsprocessen och implementationskomplexiteten av OD respektive OffD?',
+type ThesisResult = {
+  label: string;
+  value: string;
+  detail: string;
+};
+
+const thesisHighlights: string[] = [
+  'Systemarkitektur',
+  'Nätverkskommunikation',
+  'Skanner- och kvittohantering',
+  'Utvecklingskomplexitet',
+  'Hårdvaruberoenden',
 ];
 
-const thesisResults = [
+const thesisResults: ThesisResult[] = [
   {
     label: 'Payment App',
     value: '5,9%',
-    detail: 'kortare initieringstid i OD implementationen',
+    detail: 'snabbare initiering i OD',
   },
   {
     label: 'Skanning',
     value: '77,6%',
-    detail: 'kortare scanningstid med extern handskanner',
+    detail: 'snabbare skanning med extern skanner',
   },
   {
     label: 'Kvittoutskrift',
     value: '55,1%',
-    detail: 'kortare utskriftstid med Epson-skrivare',
+    detail: 'snabbare utskrift med Epson',
   },
 ];
 
-export default function ThesisSection() {
+export default function ThesisSection(): JSX.Element {
   return (
     <section
       className="section-block thesis-section"
@@ -41,17 +49,14 @@ export default function ThesisSection() {
         <p className="eyebrow">Examensarbete</p>
 
         <h3>
-          On-device kontra off-device:
-          tekniska konsekvenser av
-          betalterminalintegrationsstrategi med Verifones PSDK
+          On-device kontra off-device integration
+          med Verifones PSDK
         </h3>
 
         <p>
-          Examensarbetet undersöker hur valet mellan on-device (OD)
-          och off-device (OffD) integration påverkar implementationen
-          av Android-baserade kassasystem. Studien genomfördes som en
-          explorativ fallstudie där två integrationsstrategier jämfördes
-          utifrån teknisk implementation, funktionella skillnader och
+          Explorativ fallstudie där två Android-baserade
+          POS-integrationer jämfördes utifrån teknisk implementation,
+          nätverkskommunikation, hårdvaruberoenden och
           utvecklingskomplexitet.
         </p>
 
@@ -64,17 +69,11 @@ export default function ThesisSection() {
 
       <div className="thesis-content">
         <div className="thesis-question-card" data-glow>
-          <p className="eyebrow">Syfte och frågeställningar</p>
-
-          <p>
-            Syftet var att analysera hur integrationsstrategin påverkar
-            systemarkitektur, hårdvaruberoenden, funktionalitet och
-            utvecklingsprocess vid implementation av Verifones Payment SDK.
-          </p>
+          <p className="eyebrow">Fokusområden</p>
 
           <ul>
-            {thesisQuestions.map((question) => (
-              <li key={question}>{question}</li>
+            {thesisHighlights.map((item) => (
+              <li key={item}>{item}</li>
             ))}
           </ul>
         </div>
@@ -84,7 +83,7 @@ export default function ThesisSection() {
             <SiJetpackcompose />
             <span>
               OD gav en mer sammanhållen arkitektur där betalning,
-              scanner och kvittoutskrift kunde hanteras inom samma enhet.
+              skanner och kvittoutskrift hanterades inom samma enhet.
             </span>
           </article>
 
@@ -99,7 +98,7 @@ export default function ThesisSection() {
           <article data-glow>
             <SiNodedotjs />
             <span>
-              OffD introducerade mer nätverkslogik och anslutningshantering
+              OffD introducerade nätverkslogik och anslutningshantering
               genom kommunikation mellan flera enheter via TCP/IP.
             </span>
           </article>
@@ -107,8 +106,8 @@ export default function ThesisSection() {
           <article data-glow>
             <SiSqlite />
             <span>
-              Ett gemensamt abstraktionslager gjorde det möjligt att
-              återanvända stora delar av betalningslogiken mellan OD och OffD.
+              Ett gemensamt abstraktionslager möjliggjorde hög
+              kodåteranvändning mellan OD och OffD.
             </span>
           </article>
         </div>
@@ -127,13 +126,9 @@ export default function ThesisSection() {
           <p className="eyebrow">Slutsats</p>
 
           <p>
-            Resultatet visar att OD lämpar sig bäst i miljöer där enkel
-            installation, mobilitet och begränsat beroende av nätverk är
-            viktigt. OffD lämpar sig bättre när verksamheten behöver större
-            flexibilitet i val av kringutrustning såsom externa scanners och
-            kvittoskrivare. Studien visar även att tydliga abstraktionslager
-            minskar beroendet till specifik hårdvara och förenklar framtida
-            byte av integrationsstrategi.
+            OD gav en mer sammanhållen och mobil lösning medan OffD
+            gav större flexibilitet genom extern hårdvara och
+            kringutrustning.
           </p>
         </div>
       </div>
