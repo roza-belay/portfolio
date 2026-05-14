@@ -1,7 +1,7 @@
 import {
-  SiJetpackcompose,
   SiKotlin,
-  SiNodedotjs,
+  SiAndroid,
+  SiJetpackcompose,
   SiSqlite,
 } from 'react-icons/si';
 
@@ -13,51 +13,47 @@ type ThesisResult = {
   detail: string;
 };
 
-const thesisHighlights: string[] = [
+const thesisHighlights = [
   'Systemarkitektur',
   'Nätverkskommunikation',
-  'Skanner- och kvittohantering',
-  'Utvecklingskomplexitet',
   'Hårdvaruberoenden',
+  'Kvittoutskrift och skanning',
+  'Integrations- och utvecklingskomplexitet',
 ];
 
 const thesisResults: ThesisResult[] = [
   {
-    label: 'Payment App',
+    label: 'Betalningsinitiering',
     value: '5,9%',
-    detail: 'snabbare initiering i OD',
+    detail: 'kortare initieringstid i on-device implementationen',
   },
   {
     label: 'Skanning',
     value: '77,6%',
-    detail: 'snabbare skanning med extern skanner',
+    detail: 'snabbare skanning med extern handskanner',
   },
   {
     label: 'Kvittoutskrift',
     value: '55,1%',
-    detail: 'snabbare utskrift med Epson',
+    detail: 'snabbare utskrift med extern kvittoskrivare',
   },
 ];
 
 export default function ThesisSection(): JSX.Element {
   return (
-    <section
-      className="section-block thesis-section"
-      data-glow
-    >
+    <section className="section-block thesis-section" data-glow>
       <div className="thesis-copy">
         <p className="eyebrow">Examensarbete</p>
 
         <h3>
-          On-device kontra off-device integration
-          med Verifones PSDK
+          On-device kontra off-device integration med Verifones Payment SDK
         </h3>
 
         <p>
-          Explorativ fallstudie där två Android-baserade
-          POS-integrationer jämfördes utifrån teknisk implementation,
-          nätverkskommunikation, hårdvaruberoenden och
-          utvecklingskomplexitet.
+          Explorativ fallstudie som undersöker hur valet mellan on-device och
+          off-device integrationsstrategier påverkar implementationen av
+          Android-baserade kassasystem utifrån systemarkitektur,
+          nätverkskommunikation, hårdvaruberoenden och integrationskomplexitet.
         </p>
 
         <div className="thesis-meta">
@@ -69,7 +65,7 @@ export default function ThesisSection(): JSX.Element {
 
       <div className="thesis-content">
         <div className="thesis-question-card" data-glow>
-          <p className="eyebrow">Fokusområden</p>
+          <p className="eyebrow">Analyserade områden</p>
 
           <ul>
             {thesisHighlights.map((item) => (
@@ -82,32 +78,35 @@ export default function ThesisSection(): JSX.Element {
           <article data-glow>
             <SiJetpackcompose />
             <span>
-              OD gav en mer sammanhållen arkitektur där betalning,
-              skanner och kvittoutskrift hanterades inom samma enhet.
+              On-device gav en mer sammanhållen arkitektur där betalning,
+              skanning och kvittoutskrift hanteras i samma enhet utan externa
+              beroenden.
             </span>
           </article>
 
           <article data-glow>
             <SiKotlin />
             <span>
-              Båda implementationerna utvecklades i Kotlin för Android
-              och använde samma grundläggande betalningsflöde via PSDK.
+              Båda strategierna utvecklades i Kotlin och använde samma
+              betalningsflöde via Verifones Payment SDK.
             </span>
           </article>
 
           <article data-glow>
-            <SiNodedotjs />
+            <SiAndroid />
             <span>
-              OffD introducerade nätverkslogik och anslutningshantering
-              genom kommunikation mellan flera enheter via TCP/IP.
+              Off-device introducerade nätverkskommunikation via TCP/IP mellan
+              POS-applikation och betalterminal, vilket ökade komplexiteten.
             </span>
           </article>
 
           <article data-glow>
             <SiSqlite />
             <span>
-              Ett gemensamt abstraktionslager möjliggjorde hög
-              kodåteranvändning mellan OD och OffD.
+              Ett gemensamt API-lager för betalnings- och integrationslogik
+              möjliggjorde hög kodåteranvändning mellan
+              integrationsstrategierna trots skillnader i hårdvara och
+              kommunikation.
             </span>
           </article>
         </div>
@@ -124,11 +123,11 @@ export default function ThesisSection(): JSX.Element {
 
         <div className="thesis-recommendation" data-glow>
           <p className="eyebrow">Slutsats</p>
-
           <p>
-            OD gav en mer sammanhållen och mobil lösning medan OffD
-            gav större flexibilitet genom extern hårdvara och
-            kringutrustning.
+            Resultatet visar att skillnaderna främst ligger i arkitektur,
+            nätverksberoenden och kringutrustning snarare än betalningslogiken.
+            On-device är mer självständigt, medan off-device ger större
+            flexibilitet.
           </p>
         </div>
       </div>

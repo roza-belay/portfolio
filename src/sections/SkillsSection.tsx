@@ -19,7 +19,7 @@ export default function SkillsSection() {
       <div className="section-heading">
         <p className="eyebrow">Kompetenser</p>
 
-        <h2>Tydliga spår: frontend, mobil, backend — och säkerhet i hela stacken.</h2>
+        <h2>Tydliga spår: frontend, mobil, backend och säkerhet i hela stacken.</h2>
       </div>
 
       <div className="tech-bento">
@@ -30,12 +30,12 @@ export default function SkillsSection() {
 
           <p className="eyebrow">Nuvarande fokus</p>
 
-          <h3>React, TypeScript &amp; modern UI</h3>
+
 
           <p>
-            Jag bygger tillgängliga, responsiva gränssnitt och kopplar dem till API:er
-            med tydlig felhantering — med samma noggrannhet mot XSS och osäker data i
-            vyn som i backendgränserna.
+            Jag bygger tillgängliga, responsiva gränssnitt och integrerar dem med API:er
+             genom tydlig felhantering, säker datahantering och stabil kommunikation mellan
+             frontend och backend.
           </p>
 
           <div className="tag-list">
