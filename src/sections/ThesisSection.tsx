@@ -56,11 +56,6 @@ export default function ThesisSection()  {
           nätverkskommunikation, hårdvaruberoenden och integrationskomplexitet.
         </p>
 
-        <div className="thesis-meta">
-          <span>FWK24S</span>
-          <span>VT 26</span>
-          <span>Angelika Friis & Roza Belay</span>
-        </div>
       </div>
 
       <div className="thesis-content">
