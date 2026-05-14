@@ -39,7 +39,7 @@ const thesisResults: ThesisResult[] = [
   },
 ];
 
-export default function ThesisSection(): JSX.Element {
+export default function ThesisSection()  {
   return (
     <section className="section-block thesis-section" data-glow>
       <div className="thesis-copy">
