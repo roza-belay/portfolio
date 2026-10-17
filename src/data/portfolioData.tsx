@@ -153,11 +153,15 @@ export const projectHighlights: Project[] = [
       alt: 'Modern dark mode webbshop med glaskort och produktgrid',
     },
     links: [
-      {
-        label: 'GitHub',
-        href: 'https://github.com/roza-belay/webbshop-react-s-kerhet-backend',
-      },
-    ],
+  {
+    label: 'Visa webbshop',
+    href: 'https://webbshop-react.netlify.app/',
+  },
+  {
+    label: 'GitHub',
+    href: 'https://github.com/roza-belay/webbshop-react-s-kerhet-backend',
+  },
+],
   },
 ];
 
