@@ -60,12 +60,17 @@ const fragmentShader = `
     float n = fbm(p * 1.6 + flow + fbm(p * 2.4 - flow * 0.7));
     float wisp = smoothstep(0.08, 0.96, n);
 
-    vec3 violet = vec3(0.52, 0.14, 0.72);
-    vec3 cyan = vec3(0.05, 0.62, 0.72);
-    vec3 deep = vec3(0.03, 0.02, 0.07);
+    vec3 violet = vec3(0.42, 0.10, 0.68);
+vec3 cyan = vec3(0.035, 0.42, 0.58);
+vec3 deep = vec3(0.008, 0.004, 0.018);
 
-    vec3 col = mix(deep, mix(violet, cyan, wisp), 0.55 + 0.45 * wisp);
-    float alpha = (0.14 + 0.42 * wisp * wisp) * uIntensity;
+vec3 col = mix(
+  deep,
+  mix(violet, cyan, wisp),
+  0.38 + 0.62 * wisp
+);
+
+float alpha = (0.10 + 0.48 * wisp * wisp) * uIntensity;
 
     gl_FragColor = vec4(col, alpha);
   }
