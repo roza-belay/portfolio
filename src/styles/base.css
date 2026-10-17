@@ -12,12 +12,35 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+
   background:
-    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(120, 40, 180, 0.35), transparent 55%),
-    linear-gradient(155deg, #020008 0%, #0a0214 38%, #030006 100%);
-  background-size: 32px 32px, 32px 32px, cover, cover;
+    linear-gradient(
+      rgba(150, 120, 190, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(150, 120, 190, 0.045) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      ellipse 100% 65% at 50% 0%,
+      rgba(48, 14, 75, 0.30),
+      transparent 70%
+    ),
+    linear-gradient(
+      155deg,
+      #020106 0%,
+      #05020b 48%,
+      #010104 100%
+    );
+
+  background-size:
+    28px 28px,
+    28px 28px,
+    cover,
+    cover;
+
   color: var(--text);
 }
 

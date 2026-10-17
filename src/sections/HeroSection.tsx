@@ -1,3 +1,4 @@
+import type { PointerEvent } from 'react';
 
 import {
   FaArrowDown,
@@ -7,22 +8,39 @@ import {
   FaShieldHalved,
 } from 'react-icons/fa6';
 
-import profilePic from '../assets/profile.png';
-
 import './styles/HeroSection.css';
 
 export default function HeroSection() {
+  const handlePointerMove = (event: PointerEvent<HTMLElement>) => {
+    if (event.pointerType === 'touch') return;
+
+    const rect = event.currentTarget.getBoundingClientRect();
+
+    event.currentTarget.style.setProperty(
+      '--pointer-x',
+      `${event.clientX - rect.left}px`
+    );
+
+    event.currentTarget.style.setProperty(
+      '--pointer-y',
+      `${event.clientY - rect.top}px`
+    );
+  };
+
   return (
-    <section id="home" className="hero-modern">
-      <div className="hero-left" data-glow>
+    <section
+      id="home"
+      className="hero-modern"
+      onPointerMove={handlePointerMove}
+    >
+      <div className="hero-left">
         <p className="hero-badge">
           <span className="hero-status-dot" />
           Frontend- &amp; Fullstackutvecklare
         </p>
-
         <h1>
           Roza Belay
-    
+          <span>Jag bygger digitala upplevelser.</span>
         </h1>
 
         <p className="hero-text">
@@ -33,9 +51,20 @@ export default function HeroSection() {
         </p>
 
         <div className="hero-skills">
-          <span><FaReact /> React &amp; TypeScript</span>
-          <span><FaShieldHalved /> Webbsäkerhet</span>
-          <span><FaArrowUpRightFromSquare /> Fullstack</span>
+          <span>
+            <FaReact aria-hidden="true" />
+            React &amp; TypeScript
+          </span>
+
+          <span>
+            <FaShieldHalved aria-hidden="true" />
+            Webbsäkerhet
+          </span>
+
+          <span>
+            <FaArrowUpRightFromSquare aria-hidden="true" />
+            Fullstack
+          </span>
         </div>
 
         <div className="hero-buttons">
@@ -53,21 +82,6 @@ export default function HeroSection() {
         <p className="hero-availability">
           Öppen för nya möjligheter och intressanta projekt.
         </p>
-      </div>
-
-      <div className="hero-right" data-glow>
-        <div className="hero-image-card">
-          
-          <div className="hero-overlay">
-            <span className="hero-project-label">
-              UTVECKLING · DESIGN · SÄKERHET
-            </span>
-            <h3>Roza Belay</h3>
-            <p>Från idé till fungerande digitala lösningar.</p>
-          </div>
-        </div>
-
-    
       </div>
     </section>
   );
