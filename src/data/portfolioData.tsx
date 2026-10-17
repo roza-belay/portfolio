@@ -50,12 +50,12 @@ export const contactLinks = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://linkedin.com/in/roza-ybeyn-belay-3b9054256',
+    href: 'https://www.linkedin.com/in/roza-belay-3b9054256/',
     icon: <FaLinkedin />,
   },
   {
     label: 'GitHub',
-    href: 'https://github.com/Rozabelay339',
+    href: 'https://github.com/roza-belay',
     icon: <FaGithub />,
   },
 ];
