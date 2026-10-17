@@ -28,7 +28,7 @@ export default function SkillsSection() {
             <FaReact />
           </div>
 
-          <p className="eyebrow">Nuvarande fokus</p>
+          <p className="eyebrow">fokus</p>
 
 
 

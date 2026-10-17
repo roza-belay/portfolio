@@ -48,7 +48,7 @@ export default function HeroSection() {
         <div className="hero-skills">
           <span>
             <FaReact aria-hidden="true" />
-            React &amp; TypeScript
+            TS &amp; JS 
           </span>
 
           <span>
