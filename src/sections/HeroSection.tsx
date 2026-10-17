@@ -56,10 +56,15 @@ export default function HeroSection() {
             Webbsäkerhet
           </span>
 
-          <span>
-            <FaArrowUpRightFromSquare aria-hidden="true" />
-            Mobilutveckling
-          </span>
+         <a
+  href="https://docs-pos-app.netlify.app/"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Öppna mobilappen i en ny flik"
+>
+  <FaArrowUpRightFromSquare aria-hidden="true" />
+  Mobilutveckling
+</a>
         </div>
 
         <div className="hero-buttons">

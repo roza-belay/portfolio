@@ -1,6 +1,3 @@
-/* ==========================================
-   HERO — DARK NEON SMOKE WAVE
-   ========================================== */
 
 .hero-modern {
   position: relative;
@@ -79,6 +76,7 @@
 
   filter: blur(36px);
   transform: skewY(-5deg) scale(1.05);
+
   transition:
     opacity 500ms ease,
     transform 700ms ease;
@@ -95,7 +93,7 @@
   }
 }
 
-/* Texten ligger ovanför rökeffekten */
+/* Innehållet ligger ovanför rökeffekten */
 .hero-modern .hero-left {
   position: relative;
   z-index: 1;
@@ -130,6 +128,7 @@
   backdrop-filter: blur(14px);
 }
 
+/* Grön statuspunkt */
 .hero-status-dot {
   flex: 0 0 8px;
 
@@ -149,7 +148,7 @@
   font-size: 1.05rem;
 }
 
-/* Stor huvudrubrik */
+/* Huvudrubrik */
 .hero-modern .hero-left h1 {
   max-width: 100%;
   margin: 0;
@@ -164,7 +163,7 @@
   text-shadow: 0 8px 50px rgba(0, 0, 0, 0.4);
 }
 
-/* Lila underrubrik */
+/* Underrubrik */
 .hero-modern .hero-left h1 span {
   display: block;
 
@@ -187,7 +186,10 @@
   line-height: 1.85;
 }
 
-/* Tekniketiketter */
+/* ==========================================
+   TEKNIKETIKETTER
+   ========================================== */
+
 .hero-modern .hero-skills {
   display: flex;
   flex-wrap: wrap;
@@ -198,9 +200,12 @@
   margin-top: 28px;
 }
 
-.hero-modern .hero-skills span {
+/* Samma grundstil för etiketter och länkar */
+.hero-modern .hero-skills span,
+.hero-modern .hero-skills a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 9px;
 
   padding: 11px 16px;
@@ -208,10 +213,11 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
 
-  background: rgba(9, 4, 19, 0.72);
+
   color: var(--text);
 
   font-size: 0.88rem;
+  text-decoration: none;
 
   backdrop-filter: blur(12px);
 
@@ -221,11 +227,14 @@
     box-shadow 250ms ease;
 }
 
+/* Ikonernas färg */
 .hero-modern .hero-skills svg {
   color: var(--cyan);
 }
 
-.hero-modern .hero-skills span:hover {
+/* Hover-effekt för alla tekniketiketter */
+.hero-modern .hero-skills span:hover,
+.hero-modern .hero-skills a:hover {
   transform: translateY(-4px);
 
   border-color: rgba(34, 211, 238, 0.65);
@@ -235,7 +244,16 @@
     0 0 22px rgba(168, 85, 247, 0.12);
 }
 
-/* Knappar */
+/* Tydlig tangentbordsmarkering för länken */
+.hero-modern .hero-skills a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+
+/* ==========================================
+   KNAPPAR
+   ========================================== */
+
 .hero-modern .hero-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -278,7 +296,7 @@
 
 .hero-modern .ghost-button {
   border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(10, 4, 20, 0.7);
+  background: rgba(128, 219, 231, 0.7);
   color: var(--text);
 }
 
@@ -295,7 +313,10 @@
   line-height: 1.7;
 }
 
-/* Mobil */
+/* ==========================================
+   MOBILANPASSNING
+   ========================================== */
+
 @media (max-width: 640px) {
   .hero-modern {
     min-height: 100svh;
@@ -320,7 +341,8 @@
     gap: 9px;
   }
 
-  .hero-modern .hero-skills span {
+  .hero-modern .hero-skills span,
+  .hero-modern .hero-skills a {
     padding: 10px 12px;
     font-size: 0.82rem;
   }
@@ -336,6 +358,7 @@
   }
 }
 
+/* Respektera användarens inställning för minskad rörelse */
 @media (prefers-reduced-motion: reduce) {
   .hero-modern *,
   .hero-modern::before,
