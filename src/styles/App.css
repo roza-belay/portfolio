@@ -8,6 +8,76 @@
   overflow: hidden;
 }
 
+
+/* Lokal neonrök när man hovrar över viktiga kort */
+.hero-intro,
+.hero-profile-card,
+.project-card,
+.tech-card,
+.contact-intro,
+.contact-card-modern {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-intro::after,
+.hero-profile-card::after,
+.project-card::after,
+.tech-card::after,
+.contact-intro::after,
+.contact-card-modern::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(
+      ellipse at var(--local-x, 50%) var(--local-y, 50%),
+      rgba(184, 92, 255, 0.42),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at calc(var(--local-x, 50%) + 12%)
+        calc(var(--local-y, 50%) - 10%),
+      rgba(57, 230, 255, 0.28),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at calc(var(--local-x, 50%) - 10%)
+        calc(var(--local-y, 50%) + 12%),
+      rgba(255, 70, 180, 0.22),
+      transparent 42%
+    );
+  filter: blur(18px) saturate(150%);
+  transform: scale(0.96);
+  transition: opacity 280ms ease, transform 450ms ease;
+}
+
+.hero-intro:hover::after,
+.hero-profile-card:hover::after,
+.project-card:hover::after,
+.tech-card:hover::after,
+.contact-intro:hover::after,
+.contact-card-modern:hover::after {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .hero-intro::after,
+  .hero-profile-card::after,
+  .project-card::after,
+  .tech-card::after,
+  .contact-intro::after,
+  .contact-card-modern::after {
+    transition: none;
+  }
+}
+
+
 .smoke-background canvas {
   display: block;
   width: 100% !important;

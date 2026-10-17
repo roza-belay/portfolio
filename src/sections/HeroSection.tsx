@@ -1,12 +1,13 @@
+
 import {
+  FaArrowDown,
   FaArrowUpRightFromSquare,
-  FaCode,
   FaEnvelope,
-  FaMobileScreen,
-  FaNodeJs,
   FaReact,
   FaShieldHalved,
 } from 'react-icons/fa6';
+
+import profilePic from '../assets/profile.png';
 
 import './styles/HeroSection.css';
 
@@ -15,43 +16,58 @@ export default function HeroSection() {
     <section id="home" className="hero-modern">
       <div className="hero-left" data-glow>
         <p className="hero-badge">
-          Frontend- & Fullstackutvecklare
+          <span className="hero-status-dot" />
+          Frontend- &amp; Fullstackutvecklare
         </p>
 
         <h1>
-          Bygger säkra och moderna
-          <span> digitala upplevelser</span>
+          Roza Belay
+    
         </h1>
 
         <p className="hero-text">
-          Fullstackutvecklare med fokus på React, moderna
-          webbapplikationer, Android POS-system och säker
-          frontendutveckling.
+          Jag utvecklar moderna webbapplikationer med React
+          och TypeScript, med fokus på användarupplevelse,
+          säkerhet och genomtänkt kod. Jag arbetar också
+          med backend och Android.
         </p>
+
+        <div className="hero-skills">
+          <span><FaReact /> React &amp; TypeScript</span>
+          <span><FaShieldHalved /> Webbsäkerhet</span>
+          <span><FaArrowUpRightFromSquare /> Fullstack</span>
+        </div>
 
         <div className="hero-buttons">
           <a href="#projects" className="primary-button">
-            Visa projekt
+            Se mina projekt
+            <FaArrowDown aria-hidden="true" />
           </a>
 
           <a href="#contact" className="ghost-button">
+            <FaEnvelope aria-hidden="true" />
             Kontakta mig
           </a>
         </div>
+
+        <p className="hero-availability">
+          Öppen för nya möjligheter och intressanta projekt.
+        </p>
       </div>
 
       <div className="hero-right" data-glow>
-        <div className="hero-image-card pos-card">
-          <img
-            src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop"
-            alt="POS Terminal"
-          />
-
+        <div className="hero-image-card">
+          
           <div className="hero-overlay">
-            <h3>POS-betalplattform</h3>
-            <p>Android • Verifone • Säkra betalningar</p>
+            <span className="hero-project-label">
+              UTVECKLING · DESIGN · SÄKERHET
+            </span>
+            <h3>Roza Belay</h3>
+            <p>Från idé till fungerande digitala lösningar.</p>
           </div>
         </div>
+
+    
       </div>
     </section>
   );

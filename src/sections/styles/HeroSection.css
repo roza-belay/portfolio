@@ -1,15 +1,73 @@
 .hero-section {
   min-height: 100vh;
   display: grid;
-  align-items: stretch;
-  padding: 24px 0 44px;
-}
-.hero-modern {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
   align-items: center;
-  padding: 100px 0;
+  padding: 40px 24px 60px;
+}
+
+.hero-modern {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  width: min(1100px, 100%);
+  min-height: calc(100vh - 100px);
+  margin: 0 auto;
+  padding: 80px 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+  text-align: center;
+
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+}
+
+/* Neonljus som följer muspekaren */
+.hero-modern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  opacity: 0;
+  background:
+    radial-gradient(
+      circle at var(--pointer-x) var(--pointer-y),
+      rgba(184, 92, 255, 0.24),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at var(--pointer-x) var(--pointer-y),
+      rgba(57, 230, 255, 0.16),
+      transparent 45%
+    );
+
+  filter: blur(24px);
+  transition: opacity 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-modern:hover::before {
+    opacity: 1;
+  }
+}
+
+.hero-modern > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-modern .hero-left {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-left h1 {
