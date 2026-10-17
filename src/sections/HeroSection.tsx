@@ -43,12 +43,7 @@ export default function HeroSection() {
           <span>Jag bygger digitala upplevelser.</span>
         </h1>
 
-        <p className="hero-text">
-          Jag utvecklar moderna webbapplikationer med React
-          och TypeScript, med fokus på användarupplevelse,
-          säkerhet och genomtänkt kod. Jag arbetar också
-          med backend och Android.
-        </p>
+      
 
         <div className="hero-skills">
           <span>
@@ -63,7 +58,7 @@ export default function HeroSection() {
 
           <span>
             <FaArrowUpRightFromSquare aria-hidden="true" />
-            Fullstack
+            Mobilutveckling
           </span>
         </div>
 
