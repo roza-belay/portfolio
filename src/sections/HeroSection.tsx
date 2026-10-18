@@ -35,9 +35,8 @@ export default function HeroSection() {
     >
       <div className="hero-left">
         <p className="hero-badge">
-          <span className="hero-status-dot" />
-          Frontend- &amp; Fullstackutvecklare
-        </p>
+          Frontendutvecklare | React | Node.js | Kotlin
+          </p>
         <h1>
           Roza Belay
           <span>Jag bygger digitala upplevelser.</span>

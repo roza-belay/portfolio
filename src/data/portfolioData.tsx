@@ -34,7 +34,7 @@ import {
 
 import type { Project, TimelineItem } from '../types';
 import chatAppImage from '../assets/projects/project-chat-hero.png';
-import posSystemImage from '../assets/projects/project-pos-hero.png';
+import posSystemImage from '../assets/projects/on-device.png';
 import webshopImage from '../assets/projects/project-webshop-hero.png';
 
 export const contactLinks = [
