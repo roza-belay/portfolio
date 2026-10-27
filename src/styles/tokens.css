@@ -1,21 +1,25 @@
+/* Permanent black portfolio theme */
 :root {
   color-scheme: dark;
-  --bg: #030008;
-  --panel: rgba(14, 4, 22, 0.78);
-  --panel-hover: rgba(28, 10, 42, 0.88);
-  --text: #fff5ff;
-  --muted: #c8aed6;
-  --subtle: #9d82b0;
-  --line: rgba(255, 255, 255, 0.1);
-  --line-strong: rgba(255, 255, 255, 0.22);
+
+  --bg: #000000;
+  --panel: #08080c;
+  --panel-hover: #101018;
+
+  --text: #ffffff;
+  --muted: #b8b8c5;
+  --subtle: #77778a;
+
   --violet: #a855f7;
-  --violet-strong: #e9d5ff;
   --cyan: #22d3ee;
   --green: #5eead4;
-  --ink: #030008;
-  --radius: 32px;
-  --shadow: 0 28px 90px rgba(0, 0, 0, 0.62);
-  --hover-shadow: 0 36px 110px rgba(96, 40, 140, 0.42);
+
+  --line: rgba(255, 255, 255, 0.10);
+  --line-strong: rgba(168, 85, 247, 0.55);
+
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  --hover-shadow: 0 0 35px rgba(168, 85, 247, 0.25);
+
   font-family:
     Inter,
     ui-sans-serif,

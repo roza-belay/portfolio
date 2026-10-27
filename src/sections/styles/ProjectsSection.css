@@ -22,14 +22,22 @@
   transition: transform 0.28s ease, border-color 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
 }
 
-.project-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--line-strong);
-  background:
-    radial-gradient(circle at var(--local-x, 50%) var(--local-y, 50%), rgba(184, 92, 255, 0.22), transparent 36%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045)),
-    var(--panel-hover);
-  box-shadow: var(--hover-shadow);
+.project-card:hover .project-visual img {
+  animation: project-spin 1.2s ease-in-out;
+}
+
+@keyframes project-spin {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.08) rotate(180deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
 }
 
 .project-visual {

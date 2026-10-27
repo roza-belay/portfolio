@@ -15,17 +15,17 @@ body {
 
   background:
     linear-gradient(
-      rgba(150, 120, 190, 0.045) 1px,
+      rgba(15, 15, 16, 0.045) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(150, 120, 190, 0.045) 1px,
+      rgba(248, 246, 250, 0.045) 1px,
       transparent 1px
     ),
     radial-gradient(
       ellipse 100% 65% at 50% 0%,
-      rgba(48, 14, 75, 0.30),
+      rgba(11, 1, 20, 0.3),
       transparent 70%
     ),
     linear-gradient(
