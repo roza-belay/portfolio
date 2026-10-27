@@ -1,5 +1,10 @@
 import { useEffect, useRef } from 'react';
 
+
+import './styles/CursorRing.css';
+
+
+
 /**
  * Rök/glöd som följer musen. Wrapper får endast translate från JS;
  * puls/animering sker på barnet så inget krockar med pointer-position.
@@ -51,9 +56,15 @@ export default function CursorRing() {
     };
   }, []);
 
-  return (
-    <div ref={rootRef} className="smoke-cursor-root">
-      <div className="smoke-cursor-glow" aria-hidden="true" />
+ 
+return (
+  <div ref={rootRef} className="smoke-cursor-root">
+    <div className="smoke-cursor-wave" aria-hidden="true">
+      <span />
+      <span />
+      <span />
     </div>
-  );
+  </div>
+);
+
 }

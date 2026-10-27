@@ -19,7 +19,7 @@ export default function SkillsSection() {
       <div className="section-heading">
         <p className="eyebrow">Kompetenser</p>
 
-        <h2>Tydliga spår: frontend, mobil, backend och säkerhet i hela stacken.</h2>
+        <h2>Teknik jag använder för att skapa fungerande lösningar.</h2>
       </div>
 
       <div className="tech-bento">
@@ -33,9 +33,7 @@ export default function SkillsSection() {
 
 
           <p>
-            Jag bygger tillgängliga, responsiva gränssnitt och integrerar dem med API:er
-             genom tydlig felhantering, säker datahantering och stabil kommunikation mellan
-             frontend och backend.
+            Responsiva gränssnitt, tydliga API-flöden och säker datahantering.
           </p>
 
           <div className="tag-list">
@@ -55,8 +53,7 @@ export default function SkillsSection() {
           <h3>Android, Kotlin &amp; nära integration</h3>
 
           <p>
-            Mobila flöden där UI, hårdvara och nätverk måste samspela — från Room och
-            Compose till API-anrop och robust apputformning i verkliga miljöer.
+            Android-appar med Kotlin, Jetpack Compose och API-integration.
           </p>
 
           <div className="tag-list">

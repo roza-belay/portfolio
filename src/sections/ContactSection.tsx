@@ -29,13 +29,12 @@ export default function ContactSection() {
         <p className="eyebrow">Kontakt</p>
 
         <h3>
-          Säkerhet, modern teknik och hållbarhet i varje lösning
+          Låt oss bygga något bra.
         </h3>
 
         <p className="contact-description">
-          Frontend-fokuserad fullstackutvecklare med erfarenhet av
-          moderna betalningslösningar och användarvänliga
-          webbupplevelser.
+          Jag bygger tydliga webbappar och mobila lösningar med fokus på
+          användarupplevelse, funktion och säkerhet.
         </p>
 
         <div className="contact-tags">
@@ -59,12 +58,12 @@ export default function ContactSection() {
           </div>
 
           <div>
-            <p className="availability">Kontakta</p>
+            <p className="availability">Öppen för möjligheter</p>
 
             <h3>Roza Belay</h3>
 
             <p className="contact-role">
-              Frontend- & Fullstackutvecklare
+              Frontend / Fullstack
             </p>
           </div>
         </div>

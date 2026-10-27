@@ -13,33 +13,8 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 
-  background:
-    linear-gradient(
-      rgba(15, 15, 16, 0.045) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(248, 246, 250, 0.045) 1px,
-      transparent 1px
-    ),
-    radial-gradient(
-      ellipse 100% 65% at 50% 0%,
-      rgba(11, 1, 20, 0.3),
-      transparent 70%
-    ),
-    linear-gradient(
-      155deg,
-      #020106 0%,
-      #05020b 48%,
-      #010104 100%
-    );
+  background: #000000;
 
-  background-size:
-    28px 28px,
-    28px 28px,
-    cover,
-    cover;
 
   color: var(--text);
 }
@@ -63,11 +38,10 @@ body::before {
   inset: -28% -12%;
   z-index: -2;
   background:
-    linear-gradient(108deg, transparent 0 16%, rgba(147, 51, 234, 0.16) 30%, transparent 46% 100%),
-    linear-gradient(248deg, transparent 0 22%, rgba(34, 211, 238, 0.07) 40%, transparent 54% 100%),
-    linear-gradient(18deg, transparent 0 30%, rgba(236, 72, 153, 0.06) 48%, transparent 62% 100%);
-  filter: blur(40px) saturate(125%);
-  opacity: 0.58;
+    radial-gradient(ellipse at 50% 45%, rgba(255, 255, 255, 0.035), transparent 58%),
+    linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.025), transparent 70%);
+  filter: blur(42px);
+  opacity: 0.45;
 }
 
 body::after {

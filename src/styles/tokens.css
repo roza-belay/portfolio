@@ -10,15 +10,15 @@
   --muted: #b8b8c5;
   --subtle: #77778a;
 
-  --violet: #a855f7;
-  --cyan: #22d3ee;
+  --violet: #f1f1f1;
+  --cyan: #e5e5e5;
   --green: #5eead4;
 
   --line: rgba(255, 255, 255, 0.10);
-  --line-strong: rgba(168, 85, 247, 0.55);
+  --line-strong: rgba(255, 255, 255, 0.38);
 
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-  --hover-shadow: 0 0 35px rgba(168, 85, 247, 0.25);
+  --hover-shadow: 0 18px 48px rgba(0, 0, 0, 0.72), 0 0 24px rgba(255, 255, 255, 0.045);
 
   font-family:
     Inter,
