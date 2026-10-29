@@ -1,70 +1,53 @@
-import { useEffect, useRef } from 'react';
 
+import { useEffect, useRef } from "react";
+import "./styles/CursorRing.css";
 
-import './styles/CursorRing.css';
-
-
-
-/**
- * Rök/glöd som följer musen. Wrapper får endast translate från JS;
- * puls/animering sker på barnet så inget krockar med pointer-position.
- */
 export default function CursorRing() {
-  const rootRef = useRef<HTMLDivElement>(null);
-
-  const target = useRef({ x: 0, y: 0 });
-  const current = useRef({ x: 0, y: 0 });
+  const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return undefined;
+    const cursor = cursorRef.current;
+    if (!cursor) return;
 
-    const root = rootRef.current;
-
-    if (!root) return undefined;
-
-    const cx = window.innerWidth / 2;
-    const cy = window.innerHeight / 2;
-
-    target.current = { x: cx, y: cy };
-    current.current = { x: cx, y: cy };
-
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let currentX = mouseX;
+    let currentY = mouseY;
     let frame = 0;
 
-    const tick = () => {
-      const t = target.current;
-
-      current.current.x += (t.x - current.current.x) * 0.14;
-      current.current.y += (t.y - current.current.y) * 0.14;
-
-      root.style.transform = `translate3d(${current.current.x}px, ${current.current.y}px, 0)`;
-
-      frame = requestAnimationFrame(tick);
+    const handleMouseMove = (event: MouseEvent) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
     };
 
-    const onMove = (event: PointerEvent) => {
-      target.current.x = event.clientX;
-      target.current.y = event.clientY;
+    const animate = () => {
+      currentX += (mouseX - currentX) * 0.16;
+      currentY += (mouseY - currentY) * 0.16;
+
+      cursor.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+      frame = requestAnimationFrame(animate);
     };
 
-    frame = requestAnimationFrame(tick);
-
-    window.addEventListener('pointermove', onMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    frame = requestAnimationFrame(animate);
 
     return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(frame);
-      window.removeEventListener('pointermove', onMove);
     };
   }, []);
 
- 
-return (
-  <div ref={rootRef} className="smoke-cursor-root">
-    <div className="smoke-cursor-wave" aria-hidden="true">
-      <span />
-      <span />
-      <span />
+  return (
+    <div ref={cursorRef} className="snake-cursor">
+      <div className="snake-cursor__trail">
+        {Array.from({ length: 12 }, (_, index) => (
+          <span
+            key={index}
+            className="snake-cursor__segment"
+            style={{ "--i": index } as React.CSSProperties}
+          />
+        ))}
+      </div>
     </div>
-  </div>
-);
-
+  );
 }
